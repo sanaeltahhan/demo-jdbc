@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class TestInsertion {
+public class TestDelete {
 
-	public static void main(String[] args) throws ClassNotFoundException, SQLException  {
+public static void main(String[] args) throws ClassNotFoundException, SQLException  {
 		
 		// Lecture du fichier de propriétés
         ResourceBundle database = ResourceBundle.getBundle("database");
@@ -32,14 +32,14 @@ public class TestInsertion {
         	// Etape 3 - Créer un statement pour envoyer des requetes sql a la base
             statement = uneConnexion.createStatement();
 
-            // Inserer une ligne 
-            int nbLignesImpactees = statement.executeUpdate("insert into FOURNISSEUR(ID, NOM) values(4, 'La Maison de la Peinture')");
+            // Delete une ligne 
+            int nbLignesImpactees = statement.executeUpdate("DELETE FROM FOURNISSEUR WHERE ID=4");
             System.out.println(nbLignesImpactees);
          
         } finally {
-        	statement.close();
+            statement.close();
             uneConnexion.close();
-            }
+        }
         
        
             
@@ -47,3 +47,4 @@ public class TestInsertion {
 	}
 
 }
+

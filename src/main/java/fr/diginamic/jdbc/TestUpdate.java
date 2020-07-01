@@ -32,13 +32,13 @@ public static void main(String[] args) throws ClassNotFoundException, SQLExcepti
         	// Etape 3 - Créer un statement pour envoyer des requetes sql a la base
             statement = uneConnexion.createStatement();
 
-            // Inserer une ligne 
+            // Update une ligne 
             int nbLignesImpactees = statement.executeUpdate("UPDATE FOURNISSEUR SET NOM ='La Maison des Peintures' WHERE ID=4");
             System.out.println(nbLignesImpactees);
          
         } finally {
-          uneConnexion.close();
-        }
+        	statement.close();
+            uneConnexion.close();        }
         
        
             
